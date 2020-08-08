@@ -25,6 +25,11 @@ SECRET_KEY = '5!dttl%e%^yf+ulburjdwt$p600d93ejod@=)%7ggxkcb9u_1&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#storing data
+MY_VAR = "this_is_awesome"
+#this would give you the os enviroment for the api key
+API_KEY = os.environ.get("THIS_API_KEY")
+
 ALLOWED_HOSTS = []
 
 
