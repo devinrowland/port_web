@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from emails.views import email_entry_get_view
+
 urlpatterns = [
+    path('email/<int:id>/', email_entry_get_view),
     path('admin/', admin.site.urls),
 ]
