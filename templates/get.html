@@ -1,6 +1,8 @@
+{% load static %}
 <!doctype html>
 <html>
     <body>
+        <img src="{% static 'img/space.jpg' %}" alt='Space' />
         <h1>Not Working: {email}</h1>
         <h1>Working: {{ object.email }}</h1>
     </body>

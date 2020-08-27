@@ -14,6 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+
 from django.urls import path
 
 from emails.views import email_entry_get_view
@@ -22,3 +25,7 @@ urlpatterns = [
     path('email/<int:id>/', email_entry_get_view),
     path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG: #development not production
+    urlpatterns += static(settings.STATIC_URL,
+    documents_root=settings.STATIC_ROOT)

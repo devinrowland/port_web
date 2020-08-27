@@ -124,3 +124,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#local static files (not being served ever)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+#CDN - Content Delivery Network - "Serving" dir
+STATIC_ROOT = os.path.join(BASE_DIR, 'my_CDN', 'static')
