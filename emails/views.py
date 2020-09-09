@@ -4,6 +4,7 @@ from django.http import HttpResponse, Http404
 # Model -> View -> Template
 
 from .models import EmailEntry
+from .forms import EmailEntryForm
 
 html_str = "<!doctype html><html><body><h1>{email}</h1></body></html>"
 
@@ -22,9 +23,13 @@ def email_entry_get_view(request, id=None, *args, **kwargs):
 
 #    return
 
-#def email_entry_create_view():
-
-#    return
+def email_entry_create_view(request, *args, **kwargs):
+    print(request.user, request.user.is_authenticated)
+    form = EmailEntryForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = EmailEntryForm()
+    return render(request, "form.html", {"form": form})
 
 #def email_entry_update_view():
 

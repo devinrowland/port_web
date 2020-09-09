@@ -19,11 +19,22 @@ from django.conf.urls.static import static
 
 from django.urls import path
 
-from emails.views import email_entry_get_view
-
+from accounts.views import (
+    login_view,
+    logout_view,
+    register_view
+)
+from emails.views import (
+    email_entry_get_view,
+    email_entry_create_view
+)
 urlpatterns = [
+    path('', email_entry_create_view),
     path('email/<int:id>/', email_entry_get_view),
     path('admin/', admin.site.urls),
+    path('login/', login_view),
+    path('logout/', logout_view),
+    path('register/', register_view)
 ]
 
 if settings.DEBUG: #development not production
